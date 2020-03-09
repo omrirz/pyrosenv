@@ -2,6 +2,12 @@
 
 Set an environment for easy work with ROS in python without setting things up
 
+## Installation
+
+```console
+pip install pyrosenv
+```
+
 ## Usage
 
 For easy working with ROS in Python 3 in your IDE (Pycharm, VSCode, etc.) Do one or more of the following imports.

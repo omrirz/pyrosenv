@@ -1,0 +1,6 @@
+.idea/
+.vscode/
+venv/
+dist/
+build/
+pyrosenv.egg-info/

@@ -25,6 +25,7 @@ from pyrosenv import rosbag
 from pyrosenv import roslaunch
 from pyrosenv import rosgraph
 from pyrosenv import roslib
+from pyrosenv import genpy
 
 # import std msgs
 from pyrosenv.std_msgs.msg import Int16

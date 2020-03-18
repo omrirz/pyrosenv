@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name='pyrosenv',
-    version='0.0.1',
+    version='0.0.2',
     author='Omri Rozenzaft',
     author_email='omrirz@gmail.com',
     url='https://github.com/omrirz/pyrosenv.git',

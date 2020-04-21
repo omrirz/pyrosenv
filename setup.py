@@ -26,6 +26,8 @@ setuptools.setup(
     install_requires=[
         'pyros_setup',
         'rospkg',
-        'defusedxml'
+        'defusedxml',
+        'pycrypto',
+        'gnupg'
     ],
 )

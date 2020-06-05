@@ -26,6 +26,7 @@ from pyrosenv import roslaunch
 from pyrosenv import rosgraph
 from pyrosenv import roslib
 from pyrosenv import genpy
+from pyrosenv import cv_bridge
 
 # import std msgs
 from pyrosenv.std_msgs.msg import Int16
@@ -37,6 +38,7 @@ from pyrosenv.sensor_msgs.msg import PointCloud2
 msg = PointCloud2()
 from pyrosenv.sensor_msgs import point_cloud2
 point_cloud2.read_points(msg)
+from pyrosenv.cv_bridge import CvBridge, CvBridgeError
 # ...
 ```
 

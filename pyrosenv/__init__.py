@@ -6,6 +6,10 @@ import importlib
 
 class _HiddenPrints:
     """ Disable prints in import """
+
+    def __init__(self):
+        pass
+
     def __enter__(self):
         self._original_stdout = sys.stdout
         sys.stdout = open(os.devnull, 'w')
@@ -21,7 +25,6 @@ rosout_level = logging.getLogger('rosout').getEffectiveLevel()
 logging.getLogger('pyros_setup').setLevel(20000)
 logging.getLogger('rosout').setLevel(20000)
 
-
 with _HiddenPrints():
     try:
         import rospy
@@ -31,9 +34,11 @@ with _HiddenPrints():
         import rosnode
         import roslib
         import genpy
+        import cv_bridge
     except ImportError:  # if ROS environment is not setup, we emulate it.
         import pyros_setup
-        pyros_setup.configurable_import().configure().activate()  # this will use mysetup.cfg from pyros-setup instance folder
+        # this will use mysetup.cfg from pyros-setup instance folder
+        pyros_setup.configurable_import().configure().activate()
         import rospy
         import rosbag
         import roslaunch
@@ -41,6 +46,7 @@ with _HiddenPrints():
         import rosnode
         import roslib
         import genpy
+        import cv_bridge
     finally:
         sys.modules['pyrosenv.std_msgs'] = std_msgs = importlib.import_module('std_msgs')
         sys.modules['pyrosenv.std_msgs.msg'] = std_msgs.msg = importlib.import_module('std_msgs.msg')
@@ -55,10 +61,21 @@ with _HiddenPrints():
         sys.modules['pyrosenv.rosnode'] = rosnode = importlib.import_module('rosnode')
         sys.modules['pyrosenv.roslib'] = roslib = importlib.import_module('roslib')
         sys.modules['pyrosenv.genpy'] = genpy = importlib.import_module('genpy')
-
+        sys.modules['pyrosenv.cv_bridge'] = cv_bridge = importlib.import_module('cv_bridge')
 
 # get the loggers to their initial state
 logging.getLogger('pyros_setup').setLevel(pyros_setup_level)
 logging.getLogger('rosout').setLevel(rosout_level)
 
-__all__ = ['rospy', 'rosbag', 'roslaunch', 'rosgraph', 'rosnode', 'roslib', 'genpy', 'std_msgs', 'sensor_msgs']
+__all__ = [
+    'rospy',
+    'rosbag',
+    'roslaunch',
+    'rosgraph',
+    'rosnode',
+    'roslib',
+    'genpy',
+    'cv_bridge',
+    'std_msgs',
+    'sensor_msgs'
+]

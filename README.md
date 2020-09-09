@@ -1,6 +1,8 @@
 # pyrosenv
 
-Set an environment for easy work with ROS in python without setting things up
+Set an environment for easy work with ROS in python without setting things up.
+
+Note: ROS should be installed on your system.
 
 ## Installation
 
